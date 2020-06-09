@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+    body {
+      background-image: url('https://wallpaperaccess.com/full/143729.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+
+    <h2 class="h2-welcome" style="text-align: center; font-family:Bradley Hand">Welcome to InvestPort!</h2>
+
+    <div class="center">
+        <form action="{% url 'register' %}" method="get">
+            <button class="btn waves-effect waves-light">Register
+                <i class="material-icons right">account_circle</i>
+            </button>
+        </form>
+    </div>
+
+{% endblock %}

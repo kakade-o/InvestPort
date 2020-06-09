@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+body {
+  background-image: url('https://wallpaperaccess.com/full/143729.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<div class="container">
+
+    <form class="col s12" method="post">
+        {% csrf_token %}
+        <div class="card">
+            <br>
+            <div class="row" style="margin-top: -3%">
+                <h2 class="center" style="font-family:Bradley Hand">Registration</h2>
+            </div>
+
+            {% for field in form %}
+
+                <div class="center">
+                    <p style="margin-left: 6%; margin-right: 6%">
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                          <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                          <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                </div>
+            {% endfor %}
+            <br>
+            <div class="col s12 center">
+              <button class="btn waves-effect waves-light"
+                      type="submit"
+                      style="margin-bottom: 2%">Submit
+                  <i class="material-icons right">send</i>
+              </button>
+          </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}
