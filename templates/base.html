@@ -16,10 +16,25 @@
     <div class="container-fluid nav-wrapper">
         <a href="/" class="brand-logo nav-move-name" style="font-family:Bradley Hand">INVESTPORT</a>
         <ul id="nav-mobile" class="right">
-            <li style="font-family:Bradley Hand"><a href="/">Home</a></li>
+            {% if user.is_authenticated %}
+            <li style="font-family:Bradley Hand"><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></li>
+            <li style="font-family:Bradley Hand"><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li style="font-family:Bradley Hand"><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></li>
+            <li style="font-family:Bradley Hand"><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
+
+<style>
+body {
+  background-image: url('https://wallpaperaccess.com/full/143729.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 
 <div class="container-fluid">
     {% block content %}
