@@ -5,22 +5,24 @@
 {% block content %}
 
 <div class="container">
-    <form class="col s12" method="post">
+    <div>
+       <form class="col s12" method="post">
         {% csrf_token %}
-        <div class="card">
+        <div class="card-panel z-depth-4">
             <br>
             <div class="row" style="margin-top: -3%">
                 <h2 class="center" style="font-family:Bradley Hand">Profile</h2>
             </div>
-
-            <div class="center">
+            <div class="container">
                 {{u_form|crispy}}
                 {{p_form|crispy}}
             </div>
-
+            <div class="form-group center">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
         </div>
-
     </form>
+    </div>
 </div>
 
 
